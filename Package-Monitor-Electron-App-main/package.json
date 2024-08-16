@@ -1,0 +1,72 @@
+{
+  "name": "package-monitor",
+  "version": "1.0.0",
+  "description": "A tool to monitor package dependencies",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "generate-icons": "electron-icon-builder --input=./assets/rhom.png --output=build --flatten",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && electron-builder build --mac"
+  },
+  "build": {
+    "appId": "com.yourname.package-monitor",
+    "productName": "Package Monitor",
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "build/icons/mac/icon.icns"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "build/icons/win/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "build/icons/png"
+    },
+    "directories": {
+      "output": "dist"
+    },
+"files": [
+  "src/**/*",
+  "node_modules/**/*",
+  "package.json",
+  "assets/**/*",
+  "node_modules/.bin/yarn"  
+
+],
+    "publish": null
+  },
+  "devDependencies": {
+    "electron": "^14.0.0",
+    "electron-builder": "^24.13.3",
+    "electron-icon-builder": "^2.0.1",
+    "electron-rebuild": "^3.2.3"
+  },
+  "dependencies": {
+    "yarn": "^1.22.10",
+    "@headlessui/react": "^2.1.2",
+    "@heroicons/react": "^2.1.5",
+    "@yarnpkg/lockfile": "^1.1.0",
+    "autoprefixer": "^10.4.19",
+    "axios": "^0.21.4",
+    "chalk": "^4.1.2",
+    "cli-table3": "^0.6.5",
+    "commander": "^7.2.0",
+    "electron-notifier": "^0.0.0",
+    "fs-extra": "^10.1.0",
+    "keytar": "^7.9.0",
+    "node-notifier": "^10.0.0",
+    "postcss": "^8.4.39",
+    "semver": "^7.6.3",
+    "tailwindcss": "^3.4.4"
+  }
+}

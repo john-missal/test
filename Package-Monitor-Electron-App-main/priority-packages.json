@@ -1,0 +1,7 @@
+{
+  "priorityPackages": [
+    "react",
+    "axios",
+    "express"
+  ]
+}
